@@ -7,8 +7,8 @@
 
 //#include <hostLib.h>
 #include "Subsystems/Drive.h"
-#include "Subsystems/Conveyor.h"
 #include "Subsystems/Intake.h"
+#include <Subsystems/Manipulator.h>
 #include <WPILib.h>
 #include "Util/RelativeGyro.h"
 
@@ -50,6 +50,9 @@ private:
 	Victor* LeftIntakeMotor_;
 	Victor* RightIntakeMotor_;
 
+	Victor* ManipulatorMotorA_;
+	Victor* ManipulatorMotorB_;
+
 	//Sensors
 	RelativeGyro* DriveGyro_;
 	Encoder* LeftDriveEncoder_;
@@ -65,6 +68,7 @@ private:
 	//Subsystems
 	Drive* Drive_;
 	Intake* Intake_;
+	Manipulator* Manipulator_;
 
 };
 

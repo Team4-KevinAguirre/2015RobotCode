@@ -14,6 +14,10 @@ RobotName::RobotName()
 
 	LeftIntakeMotor_ = new Victor((int)Constants_->PWM_LEFT_INTAKE);
 	RightIntakeMotor_ = new Victor((int)Constants_->PWM_RIGHT_INTAKE);
+
+	ManipulatorMotorA_ = new Victor((int)Constants_->PWM_MANIPULATOR_A);
+	ManipulatorMotorB_ = new Victor((int)Constants_->PWM_MANIPULATOR_B);
+
 	//Sensors
 	DriveGyro_ = new RelativeGyro((int)Constants_->GYRO_DRIVE);
 	LeftDriveEncoder_ = new Encoder((int)Constants_->ENCODER_LEFT_DRIVE_A, (int)Constants_->ENCODER_LEFT_DRIVE_B);
@@ -30,6 +34,7 @@ RobotName::RobotName()
 	//Subsystems
 	Drive_ = new Drive(LeftDriveMotorA_, LeftDriveMotorB_, RightDriveMotorA_, RightDriveMotorB_, DriveGyro_, LeftDriveEncoder_, RightDriveEncoder_);
 	Intake_ = new Intake(LeftIntakeMotor_, RightIntakeMotor_);
+	Manipulator_ = new Manipulator(ManipulatorMotorA_, ManipulatorMotorB_);
 
 
 }
