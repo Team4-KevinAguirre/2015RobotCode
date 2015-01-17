@@ -32,7 +32,8 @@ private:
 	//PID
 	Pid* ManipPid_;
 
-	double heightLimit;
+	double heightMaxLimit;
+	double heightMinLimit;
 
 	double currentHeight;
 
@@ -40,7 +41,7 @@ private:
 	double binHeight;
 
 	double lowestHeight;
-	double highestHeight;
+	double highestHeight; //TODO: Haven't implemented this because not sure if necessary.
 
 public:
 
@@ -55,14 +56,14 @@ public:
 	void SetLinearHeight(double goalHeight);
 	// Function called to sequence conveyor up/down.
 
-	bool askForHeight(double heightWanted);
+	bool askForHeight(double goalHeight);
 	// Returns whether or not safe to move.  Can simply be an internal command.
 
 	void SequenceTote(int numberTotes);
 
 	void SequenceBin(int numberBins);
 
-
+	void DropStack();//TODO: Don't think this function is correct, since we need to be able to track all pieces in robot's possession.	double setHeight = currentHeight + (numberTotes * toteHeight);
 
 };
 

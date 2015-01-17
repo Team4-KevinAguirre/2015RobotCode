@@ -13,7 +13,9 @@ Manipulator::Manipulator(Victor* manipulatorMotorA, Victor* manipulatorMotorB, E
 
 	//PID
 	ManipPid_ = new Pid(&Constants_->PID_MANIP_KD,&Constants_->PID_MANIP_KI, &Constants_->PID_MANIP_KD);
-	heightLimit = 60.0;
+
+	heightMaxLimit = 60.0;
+	heightMinLimit = 0.0
 
 	toteHeight = 13.1;
 	binHeight = 24;
@@ -31,6 +33,14 @@ void Manipulator::ResetEncoder(){
 void Manipulator::UpdateHeight(){
 	double scaleFactor = 1;
 	currentHeight = ManipEncoder_->Get()*scaleFactor;
+}
+
+bool Manipulator::askForHeight(double goalHeight){
+	if(goalHeight>heightMaxLimit || goalHeight <heightMinLimit )
+		return false;
+	else
+		return true;
+	return false;
 }
 
 
@@ -54,9 +64,17 @@ void Manipulator::SetLinearHeight(double goalHeight){
 }
 
 void Manipulator::SequenceTote(int numberTotes){
-	SetLinearHeight(currentHeight + (numberTotes * toteHeight));
+	double setHeight = currentHeight + (numberTotes * toteHeight);
+	SetLinearHeight(setHeight);
+	lowestHeight = setHeight;
 }
 
 void Manipulator::SequenceBin(int numberBins){
-	SetLinearHeight(currentHeight + (numberBins * binHeight));
+	double setHeight = currentHeight + (numberBins * binHeight);
+	SetLinearHeight(setHeight);
+	lowestHeight = setHeight;
+}
+
+void Manipulator::DropStack(){
+	SetLinearHeight(0.0);
 }
