@@ -22,6 +22,7 @@ RobotName::RobotName()
 	DriveGyro_ = new RelativeGyro((int)Constants_->GYRO_DRIVE);
 	LeftDriveEncoder_ = new Encoder((int)Constants_->ENCODER_LEFT_DRIVE_A, (int)Constants_->ENCODER_LEFT_DRIVE_B);
 	RightDriveEncoder_ = new Encoder((int)Constants_->ENCODER_RIGHT_DRIVE_A, (int)Constants_->ENCODER_RIGHT_DRIVE_B);
+	ManipEncoder_ = new Encoder((int)Constants_->ENCODER_MANIP_A, (int)Constants_->ENCODER_MANIP_B);
 
 	//Joysticks
 	DriverJoystick_ = new Joystick((int)Constants_->JOY_PORT_DRIVE);
@@ -34,7 +35,7 @@ RobotName::RobotName()
 	//Subsystems
 	Drive_ = new Drive(LeftDriveMotorA_, LeftDriveMotorB_, RightDriveMotorA_, RightDriveMotorB_, DriveGyro_, LeftDriveEncoder_, RightDriveEncoder_);
 	Intake_ = new Intake(LeftIntakeMotor_, RightIntakeMotor_);
-	Manipulator_ = new Manipulator(ManipulatorMotorA_, ManipulatorMotorB_);
+	Manipulator_ = new Manipulator(ManipulatorMotorA_, ManipulatorMotorB_, ManipEncoder_);
 
 
 }

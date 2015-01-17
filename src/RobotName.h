@@ -57,6 +57,7 @@ private:
 	RelativeGyro* DriveGyro_;
 	Encoder* LeftDriveEncoder_;
 	Encoder* RightDriveEncoder_;
+	Encoder* ManipEncoder_;
 
 	//Joysticks
 	Joystick* DriverJoystick_;
