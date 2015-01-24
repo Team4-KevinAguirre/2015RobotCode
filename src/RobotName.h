@@ -50,12 +50,6 @@ private:
 	VictorSP* LeftIntakeMotor_;
 	VictorSP* RightIntakeMotor_;
 
-
-	//Pneumatics
-	DoubleSolenoid* LeftIntakeArm_;
-	DoubleSolenoid* RightIntakeArm_;
-	Compressor* Compressor_;
-
 	//Sensors
 	RelativeGyro* DriveGyro_;
 	Encoder* LeftDriveEncoder_;
@@ -71,6 +65,7 @@ private:
 	//Subsystems
 	Drive* Drive_;
 	Intake* Intake_;
+
 };
 
 START_ROBOT_CLASS(RobotName);
