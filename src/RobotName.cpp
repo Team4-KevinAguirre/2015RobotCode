@@ -14,13 +14,6 @@ RobotName::RobotName()
 
 	LeftIntakeMotor_ = new VictorSP((int)Constants_->PWM_LEFT_INTAKE);
 	RightIntakeMotor_ = new VictorSP((int)Constants_->PWM_RIGHT_INTAKE);
-
-	//Pneumatics
-	LeftIntakeArm_ = new DoubleSolenoid((int)Constants_->SOLENOID_LEFT_ARM_FWD,(int)Constants_->SOLENOID_LEFT_ARM_REV);
-	RightIntakeArm_ = new DoubleSolenoid((int)Constants_->SOLENOID_RIGHT_ARM_FWD,(int)Constants_->SOLENOID_RIGHT_ARM_REV);
-	Compressor_ = new Compressor((int)Constants_->COMPRESSOR_CAN_PORT);
-	Compressor_->Start(); //This will keep the compressor fully charged at all points in time.
-
 	//Sensors
 	DriveGyro_ = new RelativeGyro((int)Constants_->GYRO_DRIVE);
 	LeftDriveEncoder_ = new Encoder((int)Constants_->ENCODER_LEFT_DRIVE_A, (int)Constants_->ENCODER_LEFT_DRIVE_B);
@@ -33,9 +26,10 @@ RobotName::RobotName()
 	//Control Board
 	ControlBoard_ = new PhoenixControlBoard(DriverJoystick_, OperatorJoystick_);
 
+
 	//Subsystems
 	Drive_ = new Drive(LeftDriveMotorA_, LeftDriveMotorB_, RightDriveMotorA_, RightDriveMotorB_, DriveGyro_, LeftDriveEncoder_, RightDriveEncoder_);
-	Intake_ = new Intake(LeftIntakeMotor_, RightIntakeMotor_, LeftIntakeArm_, RightIntakeArm_, Compressor_);
+	Intake_ = new Intake(LeftIntakeMotor_, RightIntakeMotor_);
 
 
 }
