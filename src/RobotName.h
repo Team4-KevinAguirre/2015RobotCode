@@ -7,8 +7,6 @@
 
 //#include <hostLib.h>
 #include "Subsystems/Drive.h"
-#include "Subsystems/Conveyor.h"
-#include "Subsystems/Intake.h"
 #include <WPILib.h>
 #include "Util/RelativeGyro.h"
 
@@ -47,9 +45,6 @@ private:
 	VictorSP* RightDriveMotorA_;
 	VictorSP* RightDriveMotorB_;
 
-	VictorSP* LeftIntakeMotor_;
-	VictorSP* RightIntakeMotor_;
-
 	//Sensors
 	RelativeGyro* DriveGyro_;
 	Encoder* LeftDriveEncoder_;
@@ -64,7 +59,6 @@ private:
 
 	//Subsystems
 	Drive* Drive_;
-	Intake* Intake_;
 
 };
 
